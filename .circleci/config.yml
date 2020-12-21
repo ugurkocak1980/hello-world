@@ -5,6 +5,19 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+jobs:
+  build:
+    docker:
+    # Primary container image where all steps run.
+     - image: circleci/node:13.8.0
+  print_hello:
+    steps:
+      - run: echo "hello"
+
+  print_world:
+    steps:
+      - run: echo "world"
+
 workflows:
   # Name the workflow "welcome"
   welcome:
