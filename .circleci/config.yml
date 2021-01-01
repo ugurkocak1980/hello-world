@@ -7,16 +7,14 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: 
-          command:   |
-            echo "hello"
+          echo "hello"
 
   print_world:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: 
-          command: |
-            echo "world"
+          echo "world"
     
 workflows:
     print_echo:
