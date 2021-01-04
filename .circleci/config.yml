@@ -15,11 +15,21 @@ jobs:
     steps:
       - run: 
           echo "world"
+
+  print_envvar:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          echo $test_env_var1
     
 workflows:
     print_echo:
       jobs:
-        - print_hello
+        - print_envvar:
+        - print_hello:
+            requires:
+              - print_envvar
         - print_world:
             requires:
               - print_hello    
