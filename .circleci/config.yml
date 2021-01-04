@@ -26,7 +26,7 @@ jobs:
 workflows:
     print_echo:
       jobs:
-        - print_envvar:
+        - print_envvar
         - print_hello:
             requires:
               - print_envvar
