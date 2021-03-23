@@ -27,7 +27,13 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
-      - run: ./../template.yml
+      - checkout
+      - run:
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+              --stack-name my-stack
           
 
   
