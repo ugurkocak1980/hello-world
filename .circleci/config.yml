@@ -22,6 +22,15 @@ jobs:
     steps:
       - run:
           echo $test_env_var1
+
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - run: ./../template.yml
+          
+
+  
     
 workflows:
     print_echo:
@@ -32,4 +41,4 @@ workflows:
               - print_envvar
         - print_world:
             requires:
-              - print_hello    
+              - print_hello
